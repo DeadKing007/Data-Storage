@@ -1,0 +1,10 @@
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TextAdapter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Data"
+    android:textSize="25sp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_horizontal"/>
