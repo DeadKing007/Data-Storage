@@ -28,7 +28,7 @@
             android:name=".DisplayNotesActivity"
             android:label="@string/title_activity_display_notes"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
