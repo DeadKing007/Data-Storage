@@ -2,6 +2,16 @@ package dead.datastorage;
 
 public class NotesDetail {
     private  String title;
+    private String description;
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -19,6 +29,6 @@ public class NotesDetail {
         this.description = description;
     }
 
-    private String description;
+
 
 }

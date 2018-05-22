@@ -2,8 +2,12 @@ package dead.datastorage;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NotesDatabaseHelper extends SQLiteOpenHelper {
 
@@ -43,5 +47,42 @@ public class NotesDatabaseHelper extends SQLiteOpenHelper {
 
 
         return id;
+    }
+
+    public List<NotesDetail> ReadAll(){
+
+        List<NotesDetail> list=new ArrayList<NotesDetail>();
+
+        SQLiteDatabase database=this.getReadableDatabase();
+       Cursor cursor= database.query(
+                Notes.NotesContract.Table_name,
+                null,
+                null,
+                null,
+                null
+                ,null,
+                null
+        );
+
+       if (cursor.moveToFirst()){
+           do {
+
+               long id=  cursor.getLong(cursor.getColumnIndexOrThrow(Notes.NotesContract._ID));
+               String title=cursor.getString(cursor.getColumnIndexOrThrow(Notes.NotesContract.title));
+               String description=cursor.getString(cursor.getColumnIndexOrThrow(Notes.NotesContract.Description));
+
+               NotesDetail note=new NotesDetail();
+               note.setTitle(title);
+               note.setDescription(description);
+               note.setId(id);
+               list.add(note);
+
+
+
+           }while (cursor.moveToNext());
+       }
+
+       database.close();
+        return list;
     }
 }
