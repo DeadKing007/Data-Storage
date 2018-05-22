@@ -52,9 +52,12 @@ public class MainActivityFragment extends Fragment implements AdapterView.OnItem
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-       Toast.makeText(getActivity(),"tapped on ",Toast.LENGTH_SHORT).show();
+    //   Toast.makeText(getActivity(),"tapped on ",Toast.LENGTH_SHORT).show();
+
 
         Intent intent=new Intent(getActivity(),DisplayNotesActivity.class);
+        NotesDetail note=notesList.get(i);
+        intent.putExtra("key",note);
         startActivity(intent);
     }
 }

@@ -85,4 +85,15 @@ public class NotesDatabaseHelper extends SQLiteOpenHelper {
        database.close();
         return list;
     }
+    public boolean DeleteTask(Long id){
+
+        SQLiteDatabase database=this.getReadableDatabase();
+
+        String where=Notes.NotesContract._ID +"="+id;
+        int check=database.delete(Notes.NotesContract.Table_name,where,null);
+        if (check>0)
+        return true;
+        else
+            return false;
+    }
 }
