@@ -69,9 +69,7 @@ public class AddNoteActivity extends AppCompatActivity {
             }
             else
                 Toast.makeText(context,"Task not Added",Toast.LENGTH_SHORT).show();
-
-            title.setText("");
-            description.setText("");
+            finish();
         }
     }
 
