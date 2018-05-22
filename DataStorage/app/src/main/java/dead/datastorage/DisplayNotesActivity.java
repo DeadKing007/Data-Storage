@@ -23,7 +23,9 @@ public class DisplayNotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_notes);
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         DisplayNotes=findViewById(R.id.DisplayNotes);
 
          note= (NotesDetail) getIntent().getSerializableExtra("key");
